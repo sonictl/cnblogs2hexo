@@ -24,6 +24,12 @@ def get_date(date):
     return date
 
 for i in range(len(items)):
+    if '/' in titles[i]:
+        print('illegal path with slash:', titles[i])
+        title_legal = titles[i].replace('/', '_')
+    else:
+        title_legal = titles[i]
+        
     with open(out_dir + '/'+ titles[i] + '.md', 'w') as file:
         file.write('---\n')
         file.write('title: \'' + titles[i])
